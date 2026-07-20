@@ -1,0 +1,24 @@
+section: concepts
+title: Concepts
+entries:
+  - title: ONTAP tools for VMware vSphere overview
+    url: /concepts/ontap-tools-overview.html
+  - title: Key concepts and terms
+    url: /concepts/ontap-tools-concepts-terms.html
+  - title: Role based access control (RBAC)
+    entries:
+      - title: Learn about RBAC
+        url: /concepts/rbac-learn-about.html
+      - title: RBAC with VMware vSphere
+        entries:
+          - title: vCenter Server environment
+            url: /concepts/rbac-vcenter-environment.html
+          - title: Use RBAC with vCenter server
+            url: /concepts/rbac-vcenter-use.html
+      - title: RBAC with ONTAP
+        entries:
+          - title: ONTAP environment
+            url: /concepts/rbac-ontap-environment.html
+          - title: Use RBAC with ONTAP
+            url: /concepts/rbac-ontap-use.html
+

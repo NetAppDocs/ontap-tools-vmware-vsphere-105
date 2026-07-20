@@ -1,0 +1,49 @@
+---
+permalink: protect/configure-storage-replication-adapter-for-highly-scaled-environment.html
+sidebar: sidebar
+keywords:
+summary: 'You should configure the storage timeout intervals per the recommended settings for Storage Replication Adapter \(SRA\) to perform optimally in highly scaled environments.'
+---
+= Configure SRA in ONTAP tools for highly scaled environments
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You should configure the storage timeout intervals per the recommended settings for Storage Replication Adapter (SRA) to perform optimally in highly scaled environments.
+
+== Storage Provider settings
+
+You should set the following timeout values on VMware Live Site Recovery for scaled environment:
+
+|===
+| *Advanced settings*| *Timeout values*
+a|
+`StorageProvider.resignatureTimeout`
+a|
+Increase the value of the setting from 900 seconds to 12000 seconds.
+a|
+`storageProvider.hostRescanDelaySec`
+a|
+60
+a|
+`storageProvider.hostRescanRepeatCnt`
+a|
+20
+a|
+`storageProvider.hostRescanTimeoutSec`
+a|
+Set a high value (For example: 99999)
+|===
+You should also enable the `StorageProvider.autoResignatureMode` option.
+
+Refer to https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/how-do-i-protect-my-environment/advanced-srm-configuration/reconfigure-srm-settings/change-storage-provider-settings.html[Change Storage Provider Settings] for more information on modifying Storage Provider settings.
+
+== Storage settings
+
+When you hit a timeout, increase the values of `storage.commandTimeout` and `storage.maxConcurrentCommandCnt` to a higher value.
+
+NOTE: The timeout interval specified is the maximum value. You do not need to wait for the maximum timeout to be reached. Most commands finish within the set maximum timeout interval.
+
+Refer to https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/how-do-i-protect-my-environment/advanced-srm-configuration/reconfigure-srm-settings/change-storage-settings.html[Change Storage Settings] for modifying SAN Provider settings.
+
+
