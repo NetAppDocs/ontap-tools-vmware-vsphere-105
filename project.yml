@@ -8,7 +8,7 @@ settings:
   versions:
     - version-number: "10.5"
       url: /ontap-tools-vmware-vsphere-105
-    - version-number: "106"
+    - version-number: "10.6"
       url: /ontap-tools-vmware-vsphere-10
     - version-number: "10.4"
       url: /ontap-tools-vmware-vsphere-104
