@@ -1,5 +1,6 @@
 settings:
   name: ONTAP tools for VMware vSphere 105
+  downlevel: true
   internal:
     pdf_enabled: true
   prod:
