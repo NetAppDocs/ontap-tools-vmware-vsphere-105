@@ -1,0 +1,24 @@
+---
+permalink: manage/virtual-machine-storage-view-datastore.html
+sidebar: sidebar
+keywords: Remove vVol datastore
+summary: 'The storage view shows the list of vVols that are created by the virtual machine.'
+---
+= Virtual machine storage view in ONTAP tools
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The storage view shows the list of vVols that the virtual machine creates. 
+
+NOTE: This view applies to VMs with at least one disk from an ONTAP tools for VMware vSphere managed vVols datastore.
+
+.Steps
+
+. From the vSphere Client go to the virtual machine.
+. Select the *Monitor* tab in the right pane. 
+. Select *NetApp ONTAP tools* > *Storage*. The *Storage* details appear on the right pane. You can see the list of vVols that are present on the VM.
++
+You can use the 'Manage Columns' option to hide or show different columns.
+
+//NADIAA checked

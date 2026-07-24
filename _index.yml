@@ -1,14 +1,35 @@
 indexpage:
-  title: # Unquoted string 
-  lead: # Quoted string
-  summary: # Quoted string 
-  keywords: # Unquoted comma-delimited list of keywords 
+  title: ONTAP tools for VMware vSphere documentation
+  lead: ONTAP tools for VMware vSphere enables you to configure, manage, and protect your virtual datastores in your vCenter Server environment.
   tiles: 
-    # Tile definition 
-    - title: # Quoted or unquoted string
-      links: 
-        # Link definition
-        - title: # Quoted or unquoted string
-          url: # Path to target
-        # Next link on this tile (title/url pair)
-    # Next tile on this page (title/links)
+    - title: Get started
+      links:
+        - title: Release notes
+          url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3358876
+        - title: Learn about ONTAP tools for VMware vSphere
+          url: /concepts/ontap-tools-overview.html
+        - title: Deploy ONTAP tools for VMware vSphere
+          url: /deploy/ontap-tools-deployment.html
+        - title: Upgrade to the latest release of ONTAP tools for VMware vSphere
+          url: /upgrade/upgrade-ontap-tools.html
+        - title: Migrate ONTAP tools for VMware vSphere
+          url: migrate/migrate-to-latest-ontaptools.html
+    - title: Use ONTAP tools for VMware vSphere
+      links:
+      - title: Configure role-based access control
+        url: /concepts/rbac-learn-about.html
+      - title: Configure remote diagnostics
+        url: /manage/configure-remote-diagnostic-access.html
+      - title: Protect your datastores
+        url: /protect/enable-storage-replication-adapter.html
+    - title: More resources
+      links:
+      - title: Documentation for earlier versions of ONTAP tools for VMware vSphere 9
+        url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63792
+      - title: NetApp Knowledge Base - ONTAP tools for VMware vSphere
+        url: https://kb.netapp.com/data-mgmt/OTV
+      - title: NetApp Community - ONTAP tools for VMware vSphere
+        url: https://community.netapp.com/t5/VMware-Solutions-Discussions/bd-p/vmware-solutions-discussions
+      - title: Learn about VMware vSphere with ONTAP
+        url: https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-vsphere-overview.html#why-ontap-for-vsphere
+

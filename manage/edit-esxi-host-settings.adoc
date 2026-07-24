@@ -1,0 +1,34 @@
+---
+permalink: manage/edit-esxi-host-settings.html
+sidebar: sidebar
+keywords:
+summary: 'You can use the dashboard of ONTAP tools for VMware vSphere to edit your ESXi host settings.'
+---
+= Modify ESXi host settings using ONTAP tools
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Use the ONTAP tools dashboard in VMware vSphere to identify configuration issues, select ESXi hosts, review NetApp recommended settings, and apply them.
+
+.Before you begin
+
+The ESXi host systems portlet displays issues with ESXi host settings. Select an issue to view the host name or IP address.
+
+.Steps
+
+. Log in to the vSphere client.
+. In the shortcuts page, select *NetApp ONTAP tools* under the plug-ins section.
+. Go to *ESXi Host compliance* portlet in the Overview (dashboard) of the ONTAP tools for VMware vSphere plug-in.
+. Select *Apply Recommended Settings* link.
+. In the *Apply recommended host settings* window, select the hosts that you want to use NetApp recommended host settings and select *Next*.
+[NOTE]
+You can expand the ESXi host to see the current values.
+. In the settings page, select the recommended values as required.
+. In the summary pane, check the values and select *Finish*.
+You can track the progress in the recent task panel.
+
+.Related information
+
+link:../configure/configure-esx-server-multipath-and-timeout-settings.html[Configure ESXi host settings]
+// updated for https://github.com/NetAppDocs/ontap-tools-vmware-vsphere-10/issues/45 - jani

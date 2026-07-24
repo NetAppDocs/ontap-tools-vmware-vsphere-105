@@ -1,0 +1,35 @@
+section: protect
+title: Protect datastores and virtual machines
+entries:
+  - title: Protect using host cluster protection
+    url: /configure/protect-cluster.html
+  - title: Protect using SRA protection
+    entries:
+      - title: Configure SRA to protect datastores
+        url: /protect/enable-storage-replication-adapter.html
+      - title: Configure SRA for SAN and NAS environments
+        url: /protect/configure-storage-replication-adapter-for-san-environment.html
+      - title: Configure SRA for highly scaled environments
+        url: /protect/configure-storage-replication-adapter-for-highly-scaled-environment.html
+      - title: Configure SRA on the VMware Live Site Recovery appliance
+        url: /protect/configure-on-srm-appliance.html
+      - title: Update SRA credentials
+        url: /protect/update-credentials.html
+      - title: Configure protected and recovery sites
+        url: /protect/configure-protection-groups.html
+      - title: Configure protected and recovery site resources
+        entries:
+          - title: Configure network mappings
+            url: /protect/map-network.html
+          - title: Configure folder mappings
+            url: /protect/map-folder.html
+          - title: Configure resource mappings
+            url: /protect/map-resource.html
+          - title: Configure placeholder datastores
+            url: /protect/configure-placeholder-datastores.html
+          - title: Configure SRA using array manager
+            url: /protect/configure-array-manager.html
+      - title: Verify the replicated storage systems
+        url: /protect/verify-the-replicated-storage-environment.html
+      - title: Fan-out protection
+        url: /protect/fan-out-protection.html

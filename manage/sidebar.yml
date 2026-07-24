@@ -1,0 +1,106 @@
+section: manage
+title: Manage ONTAP tools for VMware vSphere
+entries:
+  - title: ONTAP tools for VMware vSphere dashboard overview
+    url: /configure/dashboard-overview.html
+  - title: Understand igroups and export policies
+    url: /manage/igroup-workflow.html
+  - title: Understand ONTAP tools managed igroups
+    url: /manage/nested-igroups.html
+  - title: ONTAP tools Manager user interface
+    url: /manage/manager-user-interface.html
+  - title: Manage ONTAP tools Manager settings
+    entries:
+      - title: Edit AutoSupport settings 
+        url: /manage/edit-autosupport.html
+      - title: Add NTP servers
+        url: /manage/add-ntpserver.html
+      - title: Reset VASA Provider and SRA credentials
+        url: /manage/reset-vasa-sra-credentials.html
+      - title: Edit backup settings
+        url: /manage/backup-settings.html
+  - title: Enable ONTAP tools for VMware vSphere services
+    url: /manage/enable-services.html
+  - title: Change ONTAP tools for VMware vSphere configuration
+    url: /manage/edit-appliance-settings.html
+  - title: Add new VMware vSphere hosts
+    url: /manage/add-vsphere-host.html
+  - title: Manage datastores
+    entries:
+      - title: Mount NFS and VMFS datastore
+        url: /manage/mount-datastores-on-host.html
+      - title: Unmount NFS and VMFS datastore
+        url: /manage/unmount-datastores-on-host.html
+      - title: Mount a vVols datastore
+        url: /manage/mount-a-vvols-datastore.html
+      - title: Resize NFS and VMFS datastore
+        url: /manage/resize-datastores.html
+      - title: Expand vVol datastore
+        url: /manage/expand-storage-of-vvol-datastore.html
+      - title: Shrink vVols datastore
+        url: /manage/remove-storage-from-a-vvols-datastore.html
+      - title: Delete datastores
+        url: /manage/delete-ds.html  
+      - title: ONTAP storage views for datastores
+        url: /manage/storage-view-datastore.html  
+      - title: Virtual machine storage view
+        url: /manage/virtual-machine-storage-view-datastore.html  
+  - title: Manage storage thresholds
+    url: /manage/manage-storage-threshold.html
+  - title: Manage storage backends
+    url: /manage/storage-backend.html
+  - title: Manage vCenter Server instances in ONTAP tools
+    url: /manage/manage-vcenter.html
+  - title: Manage certificates
+    url: /manage/certificate-manage.html
+  - title: Access ONTAP tools for VMware vSphere maintenance console
+    entries:
+    - title: Overview of ONTAP tools for VMware vSphere maintenance console
+      url: /manage/maintenance-console.html
+    - title: Configure remote diagnostic access
+      url: /manage/configure-remote-diagnostic-access.html
+    - title: Start SSH on other nodes
+      url: /manage/start-the-ssh-on-other-nodes.html
+    - title: Update the vCenter server credentials
+      url: /manage/update-vcenter-credentials.html
+    - title: Change certificate validation flag
+      url: /manage/change-valid-flag.html
+  - title: ONTAP tools reports
+    url: /manage/reports.html
+  - title: Manage virtual machines
+    entries:
+      - title: Considerations to migrate or clone virtual machines
+        url: /manage/migrate-virtual-machines.html
+      - title: Migrate virtual machines with NFS and VMFS datastores to vVols datastores
+        url: /manage/migrate-standard-virtual-machines-to-vvols-datastores.html
+      - title: VASA cleanup
+        url: /manage/delete-virtual-machines.html
+      - title: Attach or detach a data disk from a virtual machine
+        url: /manage/attach-detach-disk.html    
+  - title: Discover storage systems and hosts
+    url: /configure/discover-storage-systems-and-hosts.html
+  - title: Modify ESXi host settings
+    url: /manage/edit-esxi-host-settings.html
+  - title: Manage passwords
+    entries:
+      - title: Change ONTAP tools Manager password
+        url: /manage/change-manager-password.html
+      - title: Reset ONTAP tools Manager password
+        url: /manage/reset-manager-password.html
+      - title: Reset application user password
+        url: /manage/reset-app-password.html
+      - title: Reset maintenance console user password
+        url: /manage/reset-maint-password.html
+  - title: Manage host cluster protection
+    entries:
+      - title: Modify host cluster protection
+        url: /manage/edit-hostcluster-protection.html
+      - title: Remove host cluster protection
+        url: /manage/delete-hostcluster-protection.html
+  - title: Recover the ONTAP tools setup
+    url: /manage/recover-backup.html
+  - title: Uninstall ONTAP tools for VMware vSphere
+    url: /manage/uninstall-deployment.html
+  - title: Remove FlexVol volumes
+    url: /manage/delete-deployment.html
+

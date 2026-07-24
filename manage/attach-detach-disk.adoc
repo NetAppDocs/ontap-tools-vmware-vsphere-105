@@ -1,0 +1,44 @@
+---
+permalink: manage/attach-detach-disk.html
+sidebar: sidebar
+keywords:
+summary: 'Attach a data disk to a virtual machine to expand the storage capacity.'
+---
+= Attach or detach a data disk from a VM in ONTAP tools
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Follow these steps to attach or detach data disks from virtual machines in vSphere and manage their storage resources.
+
+== Attach a data disk to a virtual machine
+Attach a data disk to a virtual machine to add more storage.
+
+.Steps
+
+. Log in to the vSphere client.
+. Right-click on a virtual machine in the inventory and select *Edit Settings*.
+. On the *Virtual Hardware* tab, select *Existing hard disk*.
+. Select the virtual machine where the disk exists.
+. Select the disk you want to attach and select the *OK* button.
+
+.Result
+The hard disk appears in the Virtual Hardware devices list.
+
+== Detach a data disk from the virtual machine
+
+Detach a data disk from a virtual machine when you don't need it anymore. The disk is not deleted; it stays on the ONTAP storage system.
+
+.Steps
+
+. Log in to the vSphere client.
+. Right-click on a virtual machine in the inventory and select *Edit Settings*.
+. Move your pointer over the disk and select *Remove*.
+[NOTE]
+The disk is removed from the virtual machine. If other virtual machines share the disk, the disk files aren't deleted.
+
+.Related information
+
+https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-virtual-machine-administration-guide-7-0/configuring-virtual-machine-hardwarevm-admin/virtual-disk-configurationvm-admin/add-a-hard-disk-to-a-virtual-machinevm-admin/add-a-new-hard-disk-to-a-virtual-machinevm-admin.html[Add a New Hard Disk to a Virtual Machine]
+
+https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-virtual-machine-administration-guide-7-0/configuring-virtual-machine-hardwarevm-admin/virtual-disk-configurationvm-admin/add-a-hard-disk-to-a-virtual-machinevm-admin/add-an-existing-hard-disk-to-a-virtual-machinevm-admin.html[Add an Existing Hard Disk to a Virtual Machine]
