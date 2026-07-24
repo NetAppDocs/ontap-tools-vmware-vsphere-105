@@ -1,0 +1,39 @@
+---
+permalink: configure/discover-storage-systems-and-hosts.html
+sidebar: sidebar
+keywords:
+summary: 'When you first run ONTAP tools for VMware vSphere in a vSphere Client, ONTAP tools for VMware vSphere discovers the ESXi hosts, their LUNs and NFS exports, and the NetApp storage systems that own those LUNs and exports.'
+---
+= Discover storage systems and hosts in ONTAP tools
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When ONTAP tools for VMware vSphere is launched in the vSphere Client for the first time, it automatically discovers ESXi hosts, their associated LUNs and NFS exports, as well as the NetApp storage systems that own these resources.
+
+.Before you begin
+
+* Ensure all ESXi hosts are powered on and connected.
+* Ensure all storage virtual machines (SVMs) to be discovered are running, and each cluster node has at least one data LIF configured for the storage protocol in use (NFS or iSCSI).
+
+.About this task
+
+You can discover new storage systems or update existing ones to get the latest capacity and setup details. You can also change ONTAP tools for VMware vSphere credentials for storage system access.
+
+While discovering the storage systems, ONTAP tools for VMware vSphere collects information from the ESXi hosts that are managed by the vCenter Server instance.
+
+.Steps
+
+. From the vSphere Client home page, select *Hosts and Clusters*.
+. Right-click on the required data center and select *NetApp ONTAP tools* > *Update Host Data*.
++
+In the *Confirm* dialog box, confirm your choice.
+. Select the discovered storage controllers that have the status `Authentication Failure` and select *Actions* > *Modify*.
+. Fill in the required information in the *Modify Storage System* dialog box.
++
+. Repeat steps 4 and 5 for all storage controllers with `Authentication Failure` status.
+
+After the discovery process is complete, perform the following actions:
+
+* Use ONTAP tools for VMware vSphere to configure ESXi host settings for hosts that display the alert icon in the adapter settings column, the MPIO settings column, or the NFS settings column.
+* Provide the storage system credentials.

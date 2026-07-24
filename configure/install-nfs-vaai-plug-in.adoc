@@ -1,0 +1,52 @@
+---
+permalink: configure/install-nfs-vaai-plug-in.html
+sidebar: sidebar
+keywords:
+summary: 'You can install the NetApp NFS Plug-in for VMware vStorage APIs for Array Integration \(VAAI\) using ONTAP tools for VMware vSphere.'
+---
+= Install the NFS VAAI plug-in using ONTAP tools
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The NFS vStorage API for Array Integration (NFS VAAI) plug-in connects VMware vSphere to NFS storage arrays. Use ONTAP tools for VMware vSphere to install the VAAI plug-in. This allows the NFS storage array to handle certain storage operations instead of ESXi hosts.
+
+.Before you begin
+
+* Download the https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai/downloads-tab[NetApp NFS Plug-in for VMware VAAI] installation package.
+* Ensure you have ESXi hosts with vSphere 7.0 U3 (latest patch or later) and ONTAP 9.14.1 or later.  
+* Mount an NFS datastore.
+// OTVDOC-238 - jani
+
+.Steps
+
+. Log in to the vSphere client.
+. Select *Shortcuts* > *NetApp ONTAP tools* under the plug-ins section.
+. Select *Settings* > *NFS VAAI Tools*.
+. If you have already uploaded the VAAI plug-in to vCenter Server, select *Change* in *Existing version*. If you have not, select *Upload*.
+. Browse and select the `.vib` file and select *Upload* to upload the file to ONTAP tools.
+. Select *Install on ESXi host*, select the ESXi host on which you want to install the NFS VAAI plug-in, and then select *Install*.
++
+The vSphere Web Client shows only the ESXi hosts that can install the plug-in. You can monitor the installation progress in the recent tasks section.
+. Restart the ESXi host manually after installation.
++
+After you restart the ESXi host, ONTAP tools for VMware vSphere automatically detects and enables the NFS VAAI plug-in.
+
+.What's next?
+
+After you install the NFS VAAI plug-in and reboot your ESXi host, configure the NFS export policies for VAAI copy offload. Ensure the export policy rules meet these requirements:
+
+* The relevant ONTAP volume allows NFSv4 calls.
+* The root user remains as root and NFSv4 is allowed in all junction parent volumes.
+* The option for VAAI support is set on the relevant NFS server.
+
+For more information, refer to https://kb.netapp.com/on-prem/ontap/DM/VAAI/VAAI-KBs/Configure_the_correct_NFS_export_policies_for_VAAI_copy_offload[Configure the correct NFS export policies for VAAI copy offload] KB article.
+
+// added as part of github issue https://github.com/NetAppDocs/ontap-tools-vmware-vsphere-10/issues/13
+.Related information
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/support-vmware-vstorage-over-nfs-concept.html[Support for VMware vStorage over NFS]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/enable-disable-nfsv40-task.html[Enable or disable NFSv4.0]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-support-nfsv42-concept.html#nfs-v4-2-security-labels[ONTAP support for NFSv4.2]

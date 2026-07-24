@@ -1,0 +1,31 @@
+---
+permalink: manage/start-the-ssh-on-other-nodes.html
+sidebar: sidebar
+keywords:
+summary: 'You need to start SSH on other nodes before you upgrade.'
+---
+= Start SSH on other ONTAP tools nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You need to start SSH on other nodes before you upgrade.
+
+.Before you begin
+
+Enable the VASA Provider extension for your vCenter Server instance.
+
+.About this task
+
+Repeat this procedure on each node before upgrading.
+
+.Steps
+
+. From the vCenter Server, open a console to VASA Provider.
+. Log in as the maintenance user.
+. Enter `4` to select Support and Diagnostics.
+. Enter `1` to select Access diagnostic shell.
+. Enter `y` to proceed.
+. Run the command _sudo systemctl restart ssh_.
+
+// NADIAA checked

@@ -1,0 +1,212 @@
+---
+permalink: deploy/prerequisites.html
+sidebar: sidebar
+keywords: ONTAP tools,Storage Replication Adapter
+summary: 'Before deploying the ONTAP tools for VMware vSphere, you should be familiar with the space requirements for the deployment package and some basic host system requirements.'
+---
+= ONTAP tools for VMware vSphere requirements and configuration limits
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before deploying the ONTAP tools for VMware vSphere, you should be familiar with the space requirements for the deployment package and some basic host system requirements.
+
+You can use ONTAP tools for VMware vSphere with VMware vCenter Server Virtual Appliance (vCSA). You should deploy ONTAP tools for VMware vSphere on a supported vSphere environment that includes ESXi hosts.
+
+== System requirements
+
+* *Installation package space requirements per node*
+** 15 GB for thin provisioned installations
+** 348 GB for thick provisioned installations
+
+* *Host system sizing requirements*
+The table below shows the recommended memory for each deployment size. For high availability (HA) deployments, you need three times the appliance size listed.
+// updated for GITHUB issue #50
+|===
+
+|*Type of deployment*| *CPUs per node* |*Memory (GB) per node* |*Disk space (GB) thick provisioned per node*
+|Small
+|9
+|18
+|350
+|Medium
+|13
+|26
+|350
+|Large
+
+NOTE: The large deployment is only for HA configuration.
+|17
+|34
+|350
+|===
+[NOTE]
+When backup is enabled, each ONTAP tools cluster needs another 50 GB of space on the datastore where VMs are deployed. Therefore, non-HA requires 400 GB, and HA requires 1100 GB of space in total.
+
+// updated note for OTVDOC-258
+== Minimum storage and application requirements
+
+|===
+|Storage, host, and applications|Version requirements
+
+|ONTAP
+|9.15.1, 9.16.1, and 9.17.0
+
+|ONTAP tools supported ESXi hosts
+|7.0.3 onwards
+
+|ONTAP tools supported vCenter Server
+|7.0U3 onwards
+
+|VASA Provider 
+|3.0
+
+|OVA Application 
+|10.5
+
+|ESXi host to deploy ONTAP tools virtual machine
+|7.0U3 and 8.0U3
+//OTVDOC-282 updates -Jani
+
+|vCenter Server to deploy ONTAP tools virtual machine
+|7.0 and 8.0
+// updated the requirements as per OTVDOC-258
+|===
+[NOTE]
+Beginning with ONTAP tools for VMware vSphere 10.4, the virtual machine hardware is changed from version 10 to 17.
+
+The Interoperability Matrix Tool (IMT) contains the latest information about the supported versions of ONTAP, vCenter Server, ESXi hosts, and plug-in applications.
+
+https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src=IMT[Interoperability Matrix Tool^]
+
+== Port requirements
+
+The following table outlines the network ports that NetApp uses and their purposes. 
+There are three different types of ports:
+
+* External ports: These ports are accessible from outside the Kubernetes cluster or node. They allow services to communicate with external networks or users, enabling integration with systems outside the cluster environment.
+* Inter-node ports: These ports enable communication between nodes within the Kubernetes cluster. They are needed for cluster tasks like sharing data and working together. For single-node deployments, inter-node ports are used only within the node and do not need external access. Inter-node ports can accept traffic from outside the cluster. Block inter-node ports from internet access with firewall rules.
+* Internal ports: These ports communicate within the Kubernetes cluster using ClusterIP addresses. They are not exposed externally and do not need to be added to firewall rules.
+
+[NOTE]
+Ensure that all ONTAP tools nodes reside on the same subnet to maintain uninterrupted communication with each other.
+
+// JIRA OTVDOC-305 fix
+Click to expand or collapse the port requirements table.
+[%collapsible]
+====
+|===
+|*Service/Component name* |*Port* |*Protocol* |*Port Type* |*Description*
+
+|ntv-gateway-svc (LB) |443, 8443 |TCP |External |Pass through port for incoming communication for the VASA Provider service. VASA Provider self-signed certificate and custom CA certificate are hosted on this port.
+|SSH |22 |TCP |External |Secure Shell for remote server login and command execution.
+|rke2 server |9345 |TCP |Inter-node |RKE2 supervisor API (Restrict to trusted networks).
+|kube-apiserver |6443 |TCP |Inter-node |Kubernetes API server port (Restrict to trusted networks).
+|rpcbind/portmapper |111 |TCP/UDP |Inter-node |Used for RPC communication between services.
+|coredns (DNS) |53 |TCP/UDP |Inter-node |Domain Name System (DNS) service for name resolution within the cluster.
+|NTP |123 |UDP |Inter-node |Network Time Protocol (NTP) for time synchronization.
+|etcd |2379, 2380, 2381 |TCP |Inter-node |Key-value store for cluster data.
+|kube-vip |2112 |TCP |Inter-node |Kubernetes API server port.
+|kubelet |10248, 10250 |TCP |Inter-node |Kubernetes component
+|kube-controller |10257 |TCP |Inter-node |Kubernetes component
+|cloud-controller |10258 |TCP |Inter-node |Kubernetes component
+|kube-scheduler |10259 |TCP |Inter-node |Kubernetes component
+|kube-proxy |10249, 10256 |TCP |Inter-node |Kubernetes component
+|calico-node |9091, 9099 |TCP |Inter-node |Calico networking component.
+|containerd |10010 |TCP |Inter-node |Container daemon service.
+|VXLAN (Flannel) |8472 |UDP |Inter-node |Overlay network for pod communication.
+
+|===
+// Updated the port details for - OTVDOC-320, OTVDOC-322, and OTVDOC-305
+
+[NOTE]
+For HA deployments, ensure UDP port 8472 is open between all nodes. This port enables pod-to-pod communication across nodes; blocking it will interrupt inter-node networking.
+====
+== Configuration limits to deploy ONTAP tools for VMware vSphere for vVols datastores
+
+You can use the following table as a guide for configuring ONTAP tools for VMware vSphere.
+|===
+
+|*Deployment* | *Type* | *Number of vVols* |*Number of hosts*
+
+|Non-HA |Small (S) |up to 12K| 32
+|Non-HA |Medium (M) |up to 24K| 64
+|High-Availability |Small (S) |up to 24K| 64
+|High-Availability |Medium (M) |up to 50k| 128
+|High-Availability |Large (L) |up to 100k| 256 
+|===
+
+[NOTE]
+The host counts in the table represent the combined total across all connected vCenters.
+
+== Configuration limits to deploy ONTAP tools for VMware vSphere for VMFS and NFS datastores
+// github issue updates
+The configuration limits listed in this section are validated and supported by NetApp. Actual limits may vary depending on your environment and workload. Exceeding these limits may impact performance or supportability and is not recommended.
+Consider the following when reviewing the table:
+
+* Virtual machine Disaster Recovery (DR) is configured using synchronous, asynchronous, or strict sync policies. DR is not supported for the NVMe protocol.
+* ESXi host cluster protection uses SnapMirror Active Sync, which does not support multi-vCenter deployments.
+* ONTAP tools restricts only the number of ESXi hosts and datastores based on deployment size. There are no restrictions on the number of vCenter Servers that can be connected to ONTAP tools.
+* ONTAP tools performs parallel discovery of all storage objects. Configuration limits for ONTAP storage objects apply regardless of the number of objects actively in use.
+* ONTAP tools does not impose a limit on the number of vCenter Servers that can be onboarded. Configuration limits are determined by the number of supported hosts and datastores, as detailed in the following table.
+
+|===
+|Deployment |Number of VMFS and NFS datastores |Number of DR enabled VMFS datastores |Number of hosts
+
+|Non-HA Small |200 |80 |32
+
+|Non-HA Medium |250 |100 |32
+
+|HA Small |350 |200 |64
+
+|HA Medium |600 |200 |128
+
+|HA Large |1024 |250 |256
+
+|===
+
+== ONTAP tools for VMware vSphere - Storage Replication Adapter (SRA)
+The following table shows the numbers supported per VMware Live Site Recovery instance using ONTAP tools for VMware vSphere.
+
+|===
+|*vCenter Deployment size* |*Small* |*Medium*
+
+|Total number of virtual machines configured for protection using array-based replication
+|2000
+|5000
+
+|Total number of array-based replication protection groups
+|250
+|250
+
+|Total number of protection groups per recovery plan
+|50
+|50
+
+|Number of replicated datastores
+|255
+|255
+
+|Number of VMs
+|4000
+|7000
+
+|===
+
+The following table shows the number of VMware Live Site Recovery instances and the corresponding ONTAP tools for VMware vSphere deployment size.
+
+|===
+|*Number of VMware Live Site Recovery instances* |*ONTAP tools deployment Size*
+|Upto 4
+|Small
+|4 to 8	
+|Medium
+|More than 8	
+|Large
+
+|===
+
+//For configuration limit details of ONTAP tools for VMware vSphere - Storage Replication Adapter (SRA), refer to https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/ONTAP_Tools_for_VMware_vSphere:_Sizing_Guide_for_ONTAP_tools_for_VMware_vSphere[Sizing Guide for ONTAP tools for VMware vSphere].
+
+For more information, refer to https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/site-recovery-manager-system-requirements/operational-limits-of-site-recovery-manager.html[Operational Limits of VMware Live Site Recovery].
+
