@@ -23,7 +23,7 @@ You can migrate protected virtual machines to:
 
 If you migrate the virtual machine to a different FlexVol volume, the system updates the metadata file for that volume with the virtual machine information. If a virtual machine is migrated to a different ESXi host but the same storage, the underlying FlexVol volume metadata file will not be modified.
 
-For information on migrating virtual machines, refer to the Broadcom documentation: https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/vcenter-and-host-management/migrating-virtual-machines-host-management.html[vSphere Virtual Machines Migration]
+For information on migrating virtual machines, refer to the Broadcom documentation: https://techdocs.broadcom.com/[Broadcom Technical Documentation^].
 
 == Clone protected virtual machines
 
@@ -63,6 +63,6 @@ Memory snapshots capture the running memory state and temporarily stun the virtu
 
 On ASA r2 storage systems, virtual machine snapshot behavior differs from other storage types. Snapshots are read-only. When you power on the virtual machine, VASA Provider creates a LUN from the read-only snapshot and enables IOPS. When you power off the virtual machine, VASA Provider deletes the LUN and disables IOPS.
 
-For information on managing virtual machine snapshots, refer to the Broadcom documentation https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/vsphere-virtual-machine-administration/managing-virtual-machinesvsphere-vm-admin/using-snapshots-to-manage-virtual-machinesvsphere-vm-admin.html[Manage Virtual Machines With Snapshots].
+For information on managing virtual machine snapshots, refer to the Broadcom documentation hhttps://techdocs.broadcom.com/[Broadcom Technical Documentation^].
 
 // Added for 10.3, inputs received from Rajiv
